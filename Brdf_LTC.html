@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html#two" class="title">Matteo Russo</a>
+				
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Microfacet BRDF Approximation Employing Linearly Transformed Cosines</h1>
+							<span class="image left" text-align:center;><img src="images/dragon_ltc.png" 
+								 alt="center center"
+								 /></span>
+								 <p> Link to the Github Project: <b><a href="https://github.com/matteorusso27/Microfacet-BRDF-Approximation-Employing-Linearly-Transformed-Cosines">BRDF LTC</a></b> <br></p>
+							<p>The BRDF function describes the reflection of light off a surface, it gives the fraction of reflected
+							light in a given direction. The GGX Microfacet BRDF is currently considered the most realistic
+							parametric BRDF: it gives excellent results for many surfaces and materials, but has a major drawback
+							when materials have a high degree of roughness, making them appear darker, resulting in unnatural
+							products. This is due to a shadowing term that cuts off some light paths at the microfacet level, mean-
+							ing that energy conservation cannot be achieved with this approach</p>
+							<p>In 2016, Heitz et al. derived a stochastic method to simulate the initial interaction between
+								light rays and the surface and their subsequent bounces. The main principle is to consider the surface
+								as a volume in which one can perform a random walk to evaluate the BRDF more accurately: in this
+								way, conservation of energy is preserved.
+								This work was able to reproduce the albedo and the multiple scattering BRDF with a high degree of
+								accuracy. The main drawback is the integration with modern path tracers, since it is a purely stochastic
+								method. The algorithm can increase rendering time by a factor of 7 to 15, as pointed out by Kulla and
+								Conty. 
+							</p>
+							<p>
+								In ”Real-Time Polygonal-Light Shading with Linearly Transformed Cosines” Heitz et al.'s work,
+								we found their approach could approximate various types of BRDFs using an efficient, fast, and strong
+								approach given by Linearly Transformed Cosines.
+								They approximated the GGX-BRDF as well as other distributions; the results seemed promising and
+								inspired the work proposed in this thesis: the definition of a fit for the Multiple Scattering BRDF using
+								Linearly Transformed Cosines.</p>
+							<p>The approximation proved convincing at high roughness values, with our model matching the behavior of Heitz et al's. algorithm. We compared our results with scenes rendered using the
+								GGX-BRDF, and we found large improvements due to our energy conserving algorithm</p>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
