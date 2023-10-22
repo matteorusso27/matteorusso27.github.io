@@ -12,61 +12,23 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   <style>
-        #loader {
+        /* CSS for loading message */
+        .loading-message {
             position: fixed;
+            top: 10%; /* Adjust the position from the top */
             left: 50%;
-            top: 50%;
-            z-index: 1;
-            width: 150px;
-            height: 150px;
-            margin: -75px 0 0 -75px;
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #3498db;
-            width: 120px;
-            height: 120px;
-            -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
-        }
-
-        @-webkit-keyframes spin {
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        #loading-text {
-            position: fixed;
-            top: 55%;
-            width: 100%;
-            text-align: center;
-            font-size: 24px;
-            color: #3498db;
-        }
-
-        #loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(176, 224, 230, 0.5); /* Celeste color with 0.5 transparency */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            transform: translateX(-50%);
+            z-index: 9998;
+            font-size: 36px; /* Increase the font size */
+            color: #fff; /* Set the color to white */
+            text-align: center; /* Center the text */
+            width: 100%; /* Set the width to 100% */
         }
     </style>
 </head>
 	<body class="is-preload">
-   <div id="loader-container">
-        <div id="loader"></div>
-        <div id="loading-text">Loading...</div>
-	</div>
+  <div class="loading-message" id="loadingMessage">Loading...</div>
+    
 		<!-- Sidebar -->
 			<section id="sidebar">
 				<div class="inner">
@@ -306,10 +268,26 @@ development towards <b>Unreal Engine</b>.
         // Wait for the page to load first
         window.onload = function() {
             // Get the loader-container
-            var loaderContainer = document.getElementById('loader-container');
+            var loaderContainer = document.getElementById('loadingMessage');
+            var loaderContainer2 = document.getElementById('loader');
 
             // Hide the loader-container
             loaderContainer.style.display = 'none';
+            loaderContainer2.style.display = 'none';
+        };
+    </script>
+	
+	 <script>
+        // JavaScript to show and hide loading animation and message
+        document.onreadystatechange = function () {
+            var state = document.readyState;
+            if (state == 'interactive') {
+                document.getElementById('loadingMessage').style.display = "block";
+            } else if (state == 'complete') {
+                setTimeout(function(){
+                    document.getElementById('loadingMessage').style.display = "none";
+                },1000);
+            }
         };
     </script>
 	</body>
